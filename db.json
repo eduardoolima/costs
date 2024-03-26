@@ -10,6 +10,28 @@
       },
       "cost": 0,
       "services": []
+    },
+    {
+      "id": "b01a",
+      "category": {
+        "id": "3",
+        "name": "Desing"
+      },
+      "name": "teste 2",
+      "budget": "1600",
+      "cost": 0,
+      "services": []
+    },
+    {
+      "id": "1fc9",
+      "name": "teste 4",
+      "budget": "2005",
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "cost": 0,
+      "services": []
     }
   ],
   "categories": [
