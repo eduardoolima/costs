@@ -3,7 +3,7 @@
     {
       "id": "32e3",
       "name": "Projeto 1",
-      "budget": "2000",
+      "budget": "3100",
       "category": {
         "id": "2",
         "name": "Desenvolvimento"
@@ -24,7 +24,7 @@
     },
     {
       "id": "d92c",
-      "name": "projeto ",
+      "name": "projeto 3",
       "budget": "2500",
       "category": {
         "id": "1",
