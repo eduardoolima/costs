@@ -3,13 +3,20 @@
     {
       "id": "32e3",
       "name": "Projeto 1",
-      "budget": "3100",
+      "budget": "3200",
       "category": {
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "cost": 0,
-      "services": []
+      "cost": 2000,
+      "services": [
+        {
+          "name": "Serviço 1",
+          "cost": "2000",
+          "description": "teste 1",
+          "id": "db02365f-a39c-478e-9f53-b8979e708d33"
+        }
+      ]
     },
     {
       "id": "9aae",

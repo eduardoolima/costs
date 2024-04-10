@@ -1,3 +1,5 @@
+import { parse, v4 as uuidv4} from 'uuid'
+
 import styles from './Project.module.css'
 
 import { useParams } from 'react-router-dom'
@@ -7,6 +9,7 @@ import Loading from '../layout/Loading'
 import Container from '../layout/Container'
 import ProjectForm from '../Project/ProjectForm'
 import Message from '../layout/Message'
+import ServiceForm from '../Service/ServiceForm'
 
 function Project(){
 
@@ -62,8 +65,36 @@ function Project(){
         setShowProjectForm(!showProjectForm)
     }
 
-    function toggleServiceForm(){
+    function toggleServiceForm(){                         
         setShowServiceForm(!showServiceForm)
+    }
+
+    function createService(){
+        setMessage('')                    
+        const lastService = project.services[project.services.length -1]
+        lastService.id = uuidv4()
+
+        const lastServiceCost = lastService.cost
+        const newCost = parseFloat(project.cost) + parseFloat(lastService.cost)
+        if(newCost > parseFloat(project.budget)){
+            setMessage('Orçamento Ultrapassado')
+            setType('error')
+            project.services.pop()
+            return false
+        }
+
+        project.cost = newCost
+        fetch(`http://localhost:5000/projects/${project.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(project)
+        }).then((resp) => resp.json())
+        .then((data) => {
+            console.log(data)
+        })
+        .catch(err => console.log(err))
     }
 
     return(
@@ -101,7 +132,9 @@ function Project(){
                             {!showServiceForm ? 'Adicionar Serviço' : 'Fechar'}
                         </button>
                         <div className={styles.form}>
-                            {showServiceForm && <div>Formulario do serviço</div>}
+                            {showServiceForm && (                           
+                                <ServiceForm handleSubmit={createService} btnText='Adicionar Serviço' projectData={project} />
+                            )}
 
                         </div>
                     </div>
