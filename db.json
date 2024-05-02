@@ -26,8 +26,15 @@
         "id": "3",
         "name": "Desing"
       },
-      "cost": 0,
-      "services": []
+      "cost": 100,
+      "services": [
+        {
+          "name": "serviço teste",
+          "cost": "100",
+          "description": "teste",
+          "id": "9554b3e8-8b53-4b89-bb2f-a27729dad67b"
+        }
+      ]
     },
     {
       "id": "d92c",
